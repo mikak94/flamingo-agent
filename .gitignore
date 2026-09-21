@@ -1,0 +1,14 @@
+# Rust
+agent-rust/target/
+
+# C++
+logger-child/build/
+*.obj
+*.pdb
+*.ilk
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

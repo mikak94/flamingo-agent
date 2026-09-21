@@ -1,0 +1,25 @@
+[package]
+name = "flamingo-agent"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+
+[[bin]]
+name = "flamingo-agent"
+path = "src/main.rs"
+
+[dependencies]
+# we only need chrono to pretty print UTC time
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+log = { version = "0.4", features = ["std", "alloc"] }
+
+[target.'cfg(windows)'.dependencies]
+windows-service = "0.8"
+windows-sys = { version = "0.61", features = [
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_Security_Authorization",
+    "Win32_System_Console",
+    "Win32_System_ProcessStatus",
+    "Win32_System_Threading",
+] }
